@@ -3,6 +3,7 @@ title: Swear Statuses for Drupal
 date: "2017-10-27"
 tags: ["Star Trek", "Swearing", "Drupal"]
 excerpt: drupal.org needs more profanity.
+layout: post
 ---
 I quit Twitter recently, for a number of reasons. The one thing that keeps me coming back is [Swear Trek](https://twitter.com/swear_trek). As a fan of both Star Trek and extensive cursing, I feel confident in saying that it is the best feed on Twitter.
 

@@ -3,6 +3,7 @@ title: My very angry wish list for drupal.org
 date: "2017-05-10"
 tags: ["Drupal", "Rant"]
 excerpt: Happy early Festivus! I air my impotent grievances about the state of drupal.org.
+layout: post
 ---
 **Disclaimer:** This is a rant about drupal.org, which is used and loved by thousands of people. I like to write forcefully, but [I’m willing to put my money where my mouth is](https://www.drupal.org/node/2877439) and fix these things. Don’t hate me.
 

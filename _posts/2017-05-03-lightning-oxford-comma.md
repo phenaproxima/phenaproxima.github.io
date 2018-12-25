@@ -3,6 +3,7 @@ title: "Lightning's Oxford Comma Helper"
 date: "2017-05-03"
 tags: ["Drupal 8", "Grammar", "Pedantry"]
 excerpt: A useful function I added to Lightning. I hope it helps you.
+layout: post
 ---
 I added a useful function to the [Lightning distribution](https://drupal.org/project/lightning) of Drupal 8! Its purpose is to apply the Oxford comma (with the final conjunction) to an array of strings, returning a single nicely formatted string.
 

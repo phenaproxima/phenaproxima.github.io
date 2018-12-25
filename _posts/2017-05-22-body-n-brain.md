@@ -3,6 +3,7 @@ title: So, um...I might have been in a cult
 date: "2017-05-22"
 tags: ["Life Lessons", "Cult", "Idiocy", "Critical Thinking"]
 excerpt: I never heard of Dahn Yoga until I went to "Body & Brain" for four months and realized it was kinda cult-y.
+layout: post
 ---
 This post has nothing to with Drupal. And it’s really fucking embarrassing for me to write.
 

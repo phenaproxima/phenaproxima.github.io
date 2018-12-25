@@ -3,6 +3,7 @@ title: 'Programming Analogies #1: Namespaces'
 date: "2018-01-28"
 tags: ["PHP", "Programming"]
 excerpt: If you're unclear on how namespaces work in PHP, maybe this will help.
+layout: post
 ---
 This is the first post in a series in which I’ll explain programming concepts by analogy.
 

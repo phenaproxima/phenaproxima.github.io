@@ -3,6 +3,7 @@ title: Roger Ebert on programming
 date: "2017-05-05"
 tags: ["Movies", "Roger Ebert", "Encryption", "Cryptography", "Crypto"]
 excerpt: Ebert's Law of Programming!
+layout: post
 ---
 Today I want to share this tiny excerpt from the late, great Roger Ebert’s panning of the movie *Mercury Rising* (unseen by me), because it is perfect programming wisdom:
 

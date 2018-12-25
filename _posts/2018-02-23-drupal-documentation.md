@@ -3,6 +3,7 @@ title: How can we fix Drupal's documentation?
 date: "2018-02-23"
 tags: ["Drupal", "Documentation", "Community", "Open Source"]
 excerpt: Drupal's documentation is subpar, so I offered some unsolicited opinions about how we might improve it.
+layout: post
 ---
 I wasn’t going to do Drupal stuff tonight, but [this excellent blog post](http://matthewgrasmick.com/node/126) by a colleague of mine lit a fire under my ass.
 

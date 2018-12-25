@@ -3,6 +3,7 @@ title: I've been using Behat wrong this whole time
 date: "2018-08-07"
 tags: ["Testing", "Behat", "PHP", "Drupal 8", "Drupal"]
 excerpt: My Behat tests drive me fucking crazy, and it's all my fault. Learn when to write Behat tests, and when not to.
+layout: post
 ---
 At my day job, I maintain a Drupal distribution called [Lightning](https://lightning.acquia.com). It has lots of tests, and those tests are the bane of my existence.
 

@@ -3,6 +3,7 @@ title: How to bend Drupal 8 plugins to your nefarious will
 date: "2017-05-03"
 tags: ["Drupal 8"]
 excerpt: In Drupal 8, plugins are everywhere. Here's how you can take full control of them.
+layout: post
 ---
 So, Drupal 8 plugins are pretty much the best thing ever. They make huge parts of Drupal swappable and improve its extensibility by orders of magnitude. The plugin system is very flexible, but I want to show you a neat trick that will, in most cases, allow you to bend *other peoples’* plugins to your will.
 

@@ -3,6 +3,7 @@ title: Yet another blog post about dependency injection in Drupal 8
 date: "2017-06-03"
 tags: ["Dependency Injection", "Drupal 8"]
 excerpt: A short Q&A if you're a Drupalist who's heard about dependency injection, but you don't know what that means.
+layout: post
 ---
 If you’re just starting to write Drupal 8 modules, you may have heard whispers about “the container”, “dependency injection”, or even “the dependency injection container” (DIC for short, because programming is more fun with Beavis and Butt-head impressions).
 
