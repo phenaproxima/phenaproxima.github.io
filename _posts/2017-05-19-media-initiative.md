@@ -2,7 +2,7 @@
 title: 'Drupal 8 Media: full st(r)eam ahead'
 date: "2017-05-19"
 tags: ["Media", "Drupal 8"]
-exceprpt: A Media module officially lands in Drupal core. Now the real work begins...
+excerpt: A Media module officially lands in Drupal core. Now the real work begins...
 layout: post
 ---
 ![The unofficial logo of the Drupal 8 Media Initiative.](/images/media-initiative.png)
