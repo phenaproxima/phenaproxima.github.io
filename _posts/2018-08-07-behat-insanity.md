@@ -29,7 +29,7 @@ There are things going on under the hood here, but this post isn't a Behat tutor
 ## ...and then things went off the rails
 So we've established that Behat is really excellent for writing “stories” which are understandable by non-technical people, and validating them in a concrete way that can be automated. Since learning how to drive it a couple of years ago, I took this truck and drove it directly off a cliff.
 
-![Thelma and Louise driving their car off a cliff at high speed.](/images/cliff.jpg)
+![Thelma and Louise driving their car off a cliff at high speed.](/assets/images/cliff.jpg)
 *I'm Thelma and Behat is Louise.*
 
 I screwed up by using Behat, and its elegant syntax, as a *testing* tool rather than what it actually is — an *acceptance* tool. Rather than using it **only** to validate Lightning's user stories (i.e., “does Lightning deliver what users want?”), I used it to test virtually everything, including bug fixes, obscure corners of functionality, edge cases, and regressions. Bad move.
@@ -68,7 +68,7 @@ This test doesn't communicate that at all. *Nothing* in this test would mean any
 
 Well, *technically*, you can. (I did it in Lightning for 2+ years.) You can also technically throw a thousand monkeys into a building, give them two thousand keyboards, and wait for them to crack [prime factorization](https://en.wikipedia.org/wiki/Integer_factorization). But recall the wisdom of Jeff Goldblum in *Jurassic Park*: just because you *can* doesn't mean you *should*, and although you *can* write regression and deep functionality tests in Behat, it is an express train to hell. I know because I (and others) have been there.
 
-![Jeff Goldblum as Dr. Ian Malcolm in Jurassic Park, shirtless and in a come-hither pose.](/images/goldblum.jpg)
+![Jeff Goldblum as Dr. Ian Malcolm in Jurassic Park, shirtless and in a come-hither pose.](/assets/images/goldblum.jpg)
 *The wisdom of Dr. Ian Malcolm.*
 
 In my view, this is because Gherkin syntax just isn't flexible enough to represent the kind of poking and prodding that's usually needed in regression tests. It tends to “speak” in absolute, context-free statements or commands. But regression tests are often *highly* dependent on state, context, and other fiddly little details that simply don't translate well into short, natural-language sentences. I'm not dissing Gherkin—it's a fantastic tool. But when it comes to testing deep functionality, regressions, or edge cases, it's the *wrong* tool. [Even the creator of Cucumber (upon which Gherkin is based) agrees.](https://cucumber.io/blog/2014/03/03/the-worlds-most-misunderstood-collaboration-tool) In Lightning, I have spent *so much time* writing thousands of lines of code, all in the futile pursuit of twisting Gherkin into being suitable for testing regressions and deep functionality.

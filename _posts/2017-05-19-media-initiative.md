@@ -5,7 +5,7 @@ tags: ["Media", "Drupal 8"]
 excerpt: A Media module officially lands in Drupal core. Now the real work begins...
 layout: post
 ---
-![The unofficial logo of the Drupal 8 Media Initiative.](/images/media-initiative.png)
+![The unofficial logo of the Drupal 8 Media Initiative.](/assets/images/media-initiative.png)
 *Courtesy of [Sam Mortenson](https://www.drupal.org/u/samuel.mortenson).*
 
 This morning, [this patch](https://www.drupal.org/node/2831274) (don’t click the link, it is an incredibly long issue that will slow your browser down to a crawl) was committed to the 8.4.x branch of Drupal core. And _**I am so damn happy**_, I have not yet returned from orbit.
