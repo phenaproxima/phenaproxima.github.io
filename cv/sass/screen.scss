@@ -1,0 +1,267 @@
+/** COLORS **/
+
+$grey: rgb(189, 190, 192);
+$dark-grey: rgb(87, 89, 91);
+$green: rgb(161, 200, 57);
+$dark-green: #7f9d29;
+
+$breakpoint: 600px;
+$full-size: "screen and (min-width: #{$breakpoint})";
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,300,400,700&subset=latin');
+
+@mixin shadow($distance) {
+  text-shadow: $distance $distance 0 white, ($distance * 2) ($distance * 2) 0 $grey;
+}
+
+/** Placeholder for elements which should never be visible on phones. */
+%not-phone {
+  @media (screen and max-width: #{$breakpoint}) {
+    display: none !important;
+  }
+}
+
+/* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+body {
+  font-family: 'Roboto Condensed', Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  padding: 1em;
+  color: rgb(86, 90, 107);
+
+  @media #{$full-size} {
+    padding: 2em;
+  }
+}
+
+body > header {
+  font-size: 1.5em;
+
+  @media screen {
+    margin-bottom: 2em;
+  }
+  @media #{$full-size} {
+    font-size: 2em;
+    text-align: right;
+    margin-bottom: 2em;
+  }
+
+  * {
+    margin: 0;
+  }
+  
+  h4 {
+    text-transform: lowercase;
+    font-weight: normal;
+    color: $grey;
+    
+    @media #{$full-size} {
+      float: right;
+    }
+  }
+
+  address {
+    color: $grey;
+
+    a {
+      white-space: nowrap;
+    }
+  }
+}
+
+h1 {
+  clear: both;
+  line-height: 1.2;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: $dark-grey;
+  @include shadow(2px);
+}
+
+h2, h3, h4, h5, h6 {
+  color: $green;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: .5em;
+}
+
+h2 {
+  @include shadow(1px);
+  font-size: 2em;
+  letter-spacing: 1px;
+}
+
+a {
+  color: $green;
+  text-decoration: none;
+  transition: color .25s;
+
+  &:hover {
+    color: $dark-green;
+  }
+}
+
+.position {
+  position: fixed;
+  
+  &[hidden] {
+    display: block;
+  }
+  &.top {
+    top: 1em;
+  }
+  &.left {
+    left: 1em;
+  }
+  &.bottom {
+    bottom: 1em;
+  }
+  &.right {
+    right: 1em;
+  }
+}
+  
+ul {
+  margin: 0 0 1em 0;
+  list-style: none;
+  padding: 0;
+
+  li:before {
+    margin-right: 10px;
+    content: "\00bb";
+  }
+
+  &.comma-separated li:before {
+    content: none;
+    margin-right: 0;
+  }
+}
+
+code {
+  @extend .position;
+  @extend %not-phone;
+
+  z-index: -1;
+  opacity: .2;
+  white-space: pre;
+  font-family: monospace;
+}
+
+.fa-print {
+  @extend %not-phone;
+
+  float: left;
+  padding: 8px;
+  color: white !important;
+  background-color: $green;
+  border-radius: 6px;
+  transition: background-color .25s;
+  font-size: .6em;
+
+  &:hover {
+    background-color: $dark-green;
+  }
+  &:before {
+    margin-right: 5px;
+  }
+}
+
+/** Links back to the top of the page. */
+a[href="#"] {
+  font-weight: 400;
+  display: block;
+
+  &:before {
+    content: "\f0aa";
+    margin-right: .5em;
+    font-family: 'FontAwesome';
+  }
+}
+
+.flex {
+  @media #{$full-size} {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+nav {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25em;
+
+  @media #{$full-size} {
+    flex: 25% 0;
+    text-align: right;
+  }
+
+  a {
+    padding-right: 20px;
+
+    @media #{$full-size} {
+      display: block;
+      transition-property: color, border-right-width;
+
+      &:hover {
+        border-right: 10px solid #d8d8d8;
+      }
+    }
+  }
+}
+
+main {
+  @media #{$full-size} {
+    margin: 2em 0 0 10em;
+    flex: 72% 0;
+  }
+}
+
+article {
+  margin-bottom: 2em;
+
+  header {
+    @media #{$full-size} {
+      display: flex;
+      margin-left: -10em;
+    }
+
+    .dates {
+      order: 1;
+      color: $grey;
+      font-weight: 400;
+      text-transform: uppercase;
+
+      @media #{$full-size} {
+        text-align: right;
+        margin: 0 2em 0 0;
+        flex: 8em 0;
+      }
+    }
+
+    h3 {
+      order: 2;
+      margin-top: 0;
+      font-size: 1.2em;
+      color: $dark-grey;
+      text-transform: none;
+
+      b {
+        font-size: .8em;
+        font-weight: 300;
+        text-transform: uppercase;
+
+        &:before {
+          content: "— ";
+        }
+      }
+    }
+  }
+}

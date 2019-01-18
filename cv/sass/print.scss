@@ -1,0 +1,11 @@
+.unprintable {
+  display: none !important;
+}
+
+article header h3 b {
+  font-weight: normal;
+
+  &:before {
+    content: ":: ";
+  }
+}

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+      <title>Adam Globus-Hoenich</title>
+      <link rel="stylesheet" type="text/css" media="all" href="./css/normalize.css" />
+      <link rel="stylesheet" type="text/css" media="all" href="./css/all.css" />
+      <link rel="stylesheet" type="text/css" media="screen" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+      <link rel="stylesheet" type="text/css" media="screen" href="./css/screen.css" />
+      <link rel="stylesheet" type="text/css" media="print" href="./css/print.css" />
+      <meta name="viewport" content="width=device-width, intial-scale=1" />
+	</head>
+	<body>
+	  <code class="unprintable" hidden="hidden">/**
+ * Implements CerHandlerInterface::referencedBy().
+ */
+public function referencedBy($entity) {
+  return in_array($this->id, $this->getRemoteReferenceIDs($entity));
+}
+
+/**
+ * Implements CerHandlerInterface::referenceable().
+ */
+public function referenceable($entity) {
+  $id = $this-&gt;getRemoteEntityID($entity);
+
+  $allowed = array(
+    entityreference_get_selection_handler(
+      $this-&gt;local['field'],
+      $this-&gt;local,
+      $this-&gt;local['entity_type'],
+      $this-&gt;entity
+    )
+      -&gt;validateReferencableEntities(array($id)),
+    entityreference_get_selection_handler(
+      $this-&gt;remote['field'],
+      $this-&gt;remote,
+      $this-&gt;remote['entity_type'],
+      $entity
+    )
+      -&gt;validateReferencableEntities(array($this-&gt;id)),
+  );
+	  </code>
+	  <code hidden="hidden" class="bottom right unprintable">class TimeException extends Exception {
+}
+
+class Time {
+
+  private $t = 0;
+
+  public function __construct($hour = NULL, $minute = NULL) {
+    if (isset($hour)) {
+      $this->setHour($hour);
+    }
+    if (isset($minute)) {
+      $this->setMinute($minute);
+    }
+  }
+  
+  public function __get($property) {
+    if ($property == 't') {
+      return $this->{$property};
+    }
+  }
+  
+  public static function now() {
+    $now = getDate();
+    return new Time($now['hours'], $now['minutes']);
+  }
+	  </code>
+      <header>
+        <a href="javascript:print();" class="fa fa-print unprintable">Print</a>
+        <h4 class="unprintable">Web Developer</h4>
+        <h1>Adam Globus-Hoenich</h1>
+        <address>
+          <a href="mailto:adam@phenaproxima.net">adam@phenaproxima.net</a> // <a href="tel:+18574452326">+1 857 445 2326</a>
+        </address>
+      </header>
+      <div class="flex">
+        <nav class="unprintable">
+          <a href="#Experience">Experience</a>
+          <a href="#Skills">Skills</a>
+          <a href="#Education">Education</a>
+          <a href="#References">References</a>
+        </nav>
+        <main>
+          <h2 id="Experience">Experience</h2>
+          <article>
+            <header>
+              <h3>Senior Software Engineer <b>Acquia</b></h3>
+              <p class="dates">November 2015 - present</p>
+            </header>
+            <ul>
+              <li>Primarily responsible for architecture and engineering of the <a href="https://drupal.org/project/lightning">Lightning</a> Drupal distribution</li>
+              <li>Implemented Behat-based tests and testing framework</li>
+              <li>Integrated with many contributed Drupal modules and contributed code upstream</li>
+              <li>Coordinated with internal and external stakeholders and maintainers of contributed modules</li>
+              <li>Wrote, reviewed, advocated for, and contributed hundreds of patches to Drupal core</li>
+              <li>Developed, maintained, and tested complex, continuous upgrade path for Lightning and Acquia customers using it</li>
+              <li>Played key role in coordinating the Drupal 8 core Media Initiative and developing the core Media module</li>
+              <li>Participated in the Drupal 8 core Layout Initiative and the development of the core Layout Builder</li>
+              <li>Presented on Lightning and Drupal core topics at multiple DrupalCons</li>
+              <li>Architected and implemented internal cross-product testing frameworks</li>
+            </ul>
+          </article>
+          <article>
+            <header>
+              <h3>Drupal Engineer Intern (again) <b>Acquia</b></h3>
+              <p class="dates">April 2015 - November 2015</p>
+            </header>
+            <ul>
+              <li>Contributed to Drupal 8 core Migrate API as a subsystem maintainer</li>
+              <li>Architected parts of migration subsystem</li>
+              <li>Improved migration testing framework</li>
+              <li>Reviewed patches from other contributors</li>
+              <li>Mentored new contributors to the migration system</li>
+              <li>Coordinated small-scale migration system initiatives</li>
+            </ul>
+          </article>
+          <article>
+            <header>
+              <h3>Drupal Engineer Intern <b>Acquia</b></h3>
+              <p class="dates">August 2014 - November 2014</p>
+            </header>
+            <ul>
+              <li>Designed and developed the first version of the <a href="https://www.drupal.org/project/drupalmoduleupgrader">Drupal Module Upgrader</a></li>
+              <li>Defined and implemented API for Drupal developers to ease module upgrades</li>
+              <li>Learned to write Drupal 8 modules and rewrite Drupal 7 modules for Drupal 8</li>
+              <li>Learned unit testing and dependency injection</li>
+              <li>Wrote comprehensive developer and user documentation</li>
+              <li>Contributed code to <a href="https://www.github.com/grom358/pharborist">Pharborist</a> PHP parsing library</li>
+              <li>Worked extensively with Drupal community members and core developers</li>
+            </ul>
+          </article>
+          <article>
+            <header>
+              <h3>Drupal Web Developer <b>Radcliffe Institute for Advanced Studies (Harvard Univ.)</b></h3>
+              <p class="dates">February 2014 - June 2014</p>
+            </header>
+            <ul>
+              <li>Solved long-standing technical issues on high-traffic site</li>
+              <li>Streamlined and refactored existing code base</li>
+              <li>Upgraded to modern CSS and JavaScript techniques wherever possible</li>
+              <li>Helped improve user experience on mobile devices</li>
+              <li>Coordinated with Communications team to implement new features and improve administrative experience</li>
+            </ul>
+          </article>
+          <article>
+            <header>
+              <h3>Drupal module maintainer <b><a href="https://drupal.org/project/cer" target="_blank">Corresponding Entity References</a></b></h3>
+              <p class="dates">2013 - 2015</p>
+            </header>
+            <ul>
+              <li>Contributed patches</li>
+              <li>Authored core code</li>
+              <li>Performed major refactoring and feature implementation</li>
+              <li>Developed a module-level API</li>
+            </ul>
+          </article>
+          <article>
+            <header>
+              <h3>Senior Web Developer <b>Digital Loom, Inc.</b></h3>
+              <p class="dates">June 2007 - July 2013</p>
+            </header>
+            <ul>
+              <li>Developed themes for Drupal 5-7, including all PHP, CSS, JavaScript, and template customization</li>
+              <li>Designed and developed module suites for specialized Drupal-based applications</li>
+              <li>Extensively customized basic Drupal configurations</li>
+              <li>Built e-commerce sites using Ubercart/Drupal Commerce</li>
+              <li>Adapted or bug-fixed existing modules in accordance with client needs</li>
+              <li>Integrated external APIs (Salesforce, Cybersource, etc.) with Drupal</li>
+              <li>Helped manage in-house Drupal multisite hosting service on dedicated LAMP stack</li>
+            </ul>
+          </article>
+          <article>
+            <header>
+              <h3>IT Manager <b>American Anti-Slavery Group</b></h3>
+              <p class="dates">July 2004 - June 2006</p>
+            </header>
+            <ul>
+              <li>Responsible for the development and upkeep of iAbolish.com and satellite sites</li>
+              <li>Handled all technical setup and troubleshooting on cPanel hosting platform</li>
+              <li>Designed graphics for web and printed materials</li>
+              <li>Performed general in-office IT duties</li>
+            </ul>
+          </article>
+          <article>
+            <header>
+              <h3>Web Manager <b>Keep It In Rhode Island</b></h3>
+              <p class="dates">September 2006 - November 2006</p>
+            </header>
+            <ul>
+              <li>Built and maintained often-changing campaign website</li>
+              <li>Responsible for maintaining organizational Internet presence</li>
+              <li>Created and styled HTML e-mail blasts</li>
+              <li>Designed graphics for web and some printed materials</li>
+              <li>Performed some general in-office IT duties</li>
+            </ul>
+          </article>
+          <a class="unprintable" href="#">top</a>
+          <h2 id="Skills">Skills</h2>
+          <h3>I know...</h3>
+          <ul class="comma-separated">
+            <li>HTML 5</li>
+            <li>XHTML</li>
+            <li>XML</li>
+            <li>CSS</li>
+            <li>Sass</li>
+            <li>responsive design practices</li>
+            <li>vanilla JavaScript</li>
+            <li>jQuery</li>
+            <li>jQuery UI</li>
+            <li>Backbone.js</li>
+            <li>React</li>
+            <li>PHP</li>
+            <li>Drupal 5-8 (and a <em>lot</em> of modules)</li>
+            <li>Drupal Commerce</li>
+            <li>PHPUnit</li>
+            <li>Behat</li>
+            <li>Symfony</li>
+            <li>LAMP (Linux, Apache, PHP, MySQL) stack</li>
+            <li>SQL</li>
+            <li>XSLT</li>
+            <li>Apache Solr</li>
+            <li>C (but not enough to be dangerous)</li>
+          </ul>
+          <h3>I'm interested in...</h3>
+          <ul class="comma-separated">
+            <li>Haskell</li>
+            <li>Rust</li>
+            <li>Python</li>
+            <li>Ruby</li>
+            <li>C#/.NET</li>
+            <li>SVG</li>
+            <li>21<sup>st</sup> century C</li>
+            <li>engineering for inclusivity and accessibility</li>
+            <li>data science and machine learning (despite mathematical ineptitude)</li>
+          </ul>
+          <a class="unprintable" href="#">top</a>
+          <h2 id="Education">Education</h2>
+          <!-- TODO: Fix the HTML in this section. Its styling should not be
+          contingent upon using specific tags. -->
+          <article>
+            <header>
+              <h3>Emily Carr Institute of Art + Design <b>Vancouver, BC, Canada</b></h3>
+              <p class="dates">September 2002 - April 2004</p>
+            </header>
+          </article>
+          <article>
+            <header>
+              <h3>Lincoln-Sudbury Regional High School <b>Sudbury, MA</b></h3>
+              <p class="dates">June 2002</p>
+            </header>
+          </article>
+          <a class="unprintable" href="#">top</a>
+          <h2 id="References">References</h2>
+          <p>Available on request.</p>
+          <a class="unprintable" href="#">top</a>
+        </main>
+      </div>
+	</body>
+</html>
