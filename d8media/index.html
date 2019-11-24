@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Media in Drupal 8: Everything You Need to Know</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<style>
+.reveal section img {
+	border: 0;
+	box-shadow: none;
+}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-color="#1273b9">
+					<h1>Media in Drupal 8: <small>Everything You Need to Know</small></h1>
+					<div>
+						<img src="./images/title.png" alt="Unofficial logo of the Drupal core Media Initiative" />
+					</div>
+					<p>https://phenaproxima.net/d8media</p>
+				</section>
+				<section>
+					<h1>@phenaproxima</h1>
+					<ul>
+						<li>Senior Software Engineer @ Acquia</li>
+						<li>Media Initative coordinator</li>
+						<li>Media system co-maintainer</li>
+						<li>Lightning distro maintainer</li>
+						<li>The loud guy in the contribution room</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Overview</h1>
+					<ul>
+						<li>Purpose and architecture</li>
+						<li>Media vs. image fields</li>
+						<li>Live demo!</li>
+						<li>Useful modules</li>
+						<li>What's next?</li>
+						<li>Q+A</li>
+					</ul>
+				</section>
+				<section>
+					<h1>The Media System</h1>
+					<p>Two purposes. Two modules.</p>
+					<ol>
+						<li>Media: Represent media as Drupal entities</li>
+						<li>Media Library: Make media reusable in the UI</li>
+					</ol>
+					<p>Media is the plumbing; Media Library is the UI.</p>
+				</section>
+				<section>
+					<h1>Media items are entities</h1>
+					<ul>
+						<li>They have all the superpowers!
+						<ul>
+							<li>fieldable</li>
+							<li>revisionable</li>
+							<li>translatable</li>
+							<li>themeable</li>
+							<li>...etc.</li>
+						</ul>
+						</li>
+						<li>Media items have types</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Media types</h1>
+					<ul>
+						<li class="fragment">...are generally similar to content types</li>
+						<li class="fragment">...have a <dfn>source</dfn> (kind of media)</li>
+						<li class="fragment">...have a "source field" to store the most important data</li>
+					</ul>
+					<p class="fragment">All media have a value in their source field.</p>
+				</section>
+				<section>
+					<h1>Why this is good</h1>
+					<ul>
+						<li class="fragment">Media can be a LOT more than images</li>
+						<li class="fragment">Images, and other media, are <strong>reusable</strong></li>
+						<li class="fragment">Brings power, flexibility, and consistency</li>
+					</ul>
+					<p class="fragment">But yes, it <em>is</em> a little more complicated.</p>
+				</section>
+				<section>
+					<h1>Media Library</h1>
+					<ul>
+						<li><em>Finally!</em></li>
+						<li class="fragment">Author-facing UI for selecting and adding media</li>
+						<li class="fragment">Simple, usable, accessible</li>
+						<li class="fragment">Nearly zero configuration</li>
+						<li class="fragment">Customizable to a degree</li>
+						<li class="fragment">Integrates with CKEditor (!)</li>
+						<li class="fragment">Can be integrated with other things too</li>
+					</ul>
+					<p class="fragment">BUT...it <strong>only</strong> works with media.</p>
+				</section>
+				<section>
+					<h1>Let us recap</h1>
+					<ul>
+						<li>Media:
+						<ul>
+							<li>are entities</li>
+							<li>have a type</li>
+							<li>have a special field to store Important Stuff</li>
+							<li>can be more than just images</li>
+						</ul>
+						</li>
+						<li>Image fields: content owns image</li>
+						<li>Media fields: media owns image; content references media</li>
+						<li>Media Library only works with media</li>
+					</ul>
+				</section>
+				<section data-background-image="./images/siren.gif" data-background-opacity=".6">
+					<h1>Live demo!</h1>
+				</section>
+				<section>
+					<h1>Two useful modules</h1>
+					<h3>(and one useless one)</h3>
+				</section>
+				<section>
+					<h1>Useful module: Entity Browser</h1>
+					<ul>
+						<li>Generic and open-ended</li>
+						<li>Needs a lot of set-up</li>
+						<li>Harder to make usable and accessible</li>
+						<li>Peacefully coexists with core tools</li>
+						<li>More complicated; good for unusual use cases</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Useful module: Entity Embed</h1>
+					<ul>
+						<li>Generic and open-ended</li>
+						<li>Needs a lot of set-up</li>
+						<li>Peacefully coexists with core tools</li>
+						<li>More complicated; better for unusual use cases</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Useless module: Media Entity</h1>
+					<ul>
+						<li>Obsolete; moved into core</li>
+						<li>Big ecosystem...most of which now use core tools</li>
+						<li>Version 2 is an update path to core Media</li>
+					</ul>
+					<p>Please don't use this module.</p>
+				</section>
+				<section>
+					<h1>What's next?</h1>
+					<ul>
+						<li>Fix <em>all</em> the bugs</li>
+						<li>Migration path from files and images</li>
+						<li>Replace File &amp; Image modules?</li>
+						<li>Installing Media and Media Library by default</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Questions??</h1>
+				</section>
+				<section>
+					<h1>Thank you!!!</h1>
+					<h2>@phenaproxima</h2>
+					<p>https://drupal.org/u/phenaproxima</p>
+					<p>https://phenaproxima.net/d8media</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
