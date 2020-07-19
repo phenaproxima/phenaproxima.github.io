@@ -1,0 +1,13 @@
+diff --git a/sites/default/default.settings.php b/sites/default/default.settings.php
+index 1c8dbee9e7..d9a4d26555 100644
+--- a/sites/default/default.settings.php
++++ b/sites/default/default.settings.php
+@@ -237,7 +237,7 @@
+  * directory in the public files path. The setting below allows you to set
+  * its location.
+  */
+-# $settings['config_sync_directory'] = '/directory/outside/webroot';
++$settings['config_sync_directory'] = __DIR__ . '/../../../config';
+
+ /**
+  * Settings:
