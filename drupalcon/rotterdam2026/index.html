@@ -1,3 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentation</title>
+
+  <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="node_modules/reveal.js/dist/theme/black.css">
+  <link rel="stylesheet" href="node_modules/reveal.js/dist/plugin/highlight/monokai.css">
+</head>
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown
+                data-separator="^<!-- s -->$"
+                data-separator-vertical="^<!-- v -->$">
+        <script type="text/template">
 # You can (and should!) build a site template
 
 phenaproxima
@@ -106,7 +125,7 @@ Drupal CMS is a nicer experience, but the same result.
 * Have a nice design
 
 <aside class="notes">
-  I think in Drupal we've had a long history of trying to be everything to everybody. It's made Drupal incredibly flexible but it results in the learning cliff we've all seen from xkcd. At least in Drupal CMS, we think that if you make something too generic, it's also not useful enough for most people who want to get started quickly. So we think site templates should be opinionated. They should never try to be generic. 
+  I think in Drupal we've had a long history of trying to be everything to everybody. It's made Drupal incredibly flexible but it results in the learning cliff we've all seen from xkcd. At least in Drupal CMS, we think that if you make something too generic, it's also not useful enough for most people who want to get started quickly. So we think site templates should be opinionated. They should never try to be generic.
 
   You should build site templates with a target audience in mind. You can go with the traditional Drupal markets of healthcare, education, and government, and we certainly have site templates aimed at those verticals. But you could also branch out into smaller and less obvious spaces: think blogs, restaurants, different kinds of small businesses, community websites...you all probably have more ideas than I do.
 
@@ -294,34 +313,22 @@ Doable, but not a priority.
 </aside>
 
 <!-- s -->
+        </script>
+      </section>
+    </div>
+  </div>
 
-<!-- ==================================================================
-  MARKUP REFERENCE (this comment block is invisible in the deck)
+  <script src="node_modules/reveal.js/dist/reveal.js"></script>
+  <script src="node_modules/reveal.js/dist/plugin/markdown.js"></script>
+  <script src="node_modules/reveal.js/dist/plugin/highlight.js"></script>
+  <script src="node_modules/reveal.js/dist/plugin/notes.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+    });
+  </script>
 
-  Speaker notes — wrap in an aside, visible only in speaker view (S key):
-    <aside class="notes">Your notes here.</aside>
-
-  Fragments — reveal items one at a time. In Markdown, use HTML:
-    <li class="fragment">Appears on next click</li>
-    <p class="fragment fade-up">With an animation style</p>
-
-  Per-slide settings — HTML comments read by the Markdown plugin:
-    <!- .slide: data-background-color="#222" data-transition="zoom" ->
-    Applies to the slide the comment sits on. Any reveal.js data-*
-    attribute works this way.
-
-  Element attributes — add classes/attrs to the element above:
-    ## A heading <!- .element: class="fragment" ->
-
-  Code blocks — fenced blocks get syntax highlighting automatically:
-    ```php
-    $foo = 'bar';
-    ```
-    Highlight specific lines: ```php [1|3-5]
-
-  Keyboard shortcuts while presenting:
-    S   speaker view (notes, timer, upcoming slide)
-    F   fullscreen
-    ESC overview of all slides
-    ?   full shortcut list
-===================================================================== -->
+</body>
+</html>
