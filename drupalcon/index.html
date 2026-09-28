@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentation</title>
+
+  <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="node_modules/reveal.js/dist/theme/black.css">
+  <link rel="stylesheet" href="node_modules/reveal.js/dist/plugin/highlight/monokai.css">
+</head>
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+      <!-- Slide content lives in slides.md. Slide separators are set in
+           the Reveal.initialize() call below. -->
+      <section data-markdown="slides.md"
+               data-separator="^<!-- s -->$"
+               data-separator-vertical="^<!-- v -->$">
+      </section>
+    </div>
+  </div>
+
+  <script src="node_modules/reveal.js/dist/reveal.js"></script>
+  <script src="node_modules/reveal.js/dist/plugin/markdown.js"></script>
+  <script src="node_modules/reveal.js/dist/plugin/highlight.js"></script>
+  <script src="node_modules/reveal.js/dist/plugin/notes.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+    });
+  </script>
+
+</body>
+</html>

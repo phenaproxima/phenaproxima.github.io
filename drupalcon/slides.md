@@ -1,0 +1,327 @@
+# You can (and should!) build a site template
+
+phenaproxima
+
+DrupalCon Rotterdam 2026
+
+<!-- s -->
+
+## About Me
+
+- Hi! I'm **Adam**, a Staff Software Engineer at Acquia
+- Almost **20 years** in the Drupal space
+- **Architecture Lead** for Drupal CMS
+- Core developer
+- Former distribution maintainer
+
+<!-- v -->
+
+## Today...
+
+- What are site templates?
+- How to build one and put it out there
+- Why you should do this
+- Challenges and next steps
+
+<!-- s -->
+
+## What are site templates?
+
+<p class="fragment"><strong>A recipe for a 90% finished Drupal site.</strong></p>
+
+<ul>
+  <li class="fragment">Use once to start a project, then throw away</li>
+  <li class="fragment">Aimed a specific use or vertical</li>
+  <li class="fragment">Fully themed content model with demo content</li>
+  <li class="fragment">Examples: Haven, Byte, Archimedes, ...</li>
+</ul>
+
+<!-- s -->
+
+## Relationship to recipes
+
+<ul>
+  <li>Site templates <em>are</em> recipes!</li>
+  <li class="fragment">You can compose one from smaller recipes...</li>
+  <li class="fragment">...or have a big monolith</li>
+</ul>
+
+<aside class="notes">
+  Before I explain this, can I quickly ask: how many of you are familiar with recipes? Written one? Used one?
+
+  Okay, for those who have never touched them: a recipe just a way to automate site buiding steps. It can install modules, import configuration, alter configuration, and add content. Recipes aren't like modules; they can't make decisions. And once you use a recipe, you throw it away - unlike a module, which sticks around changes the way the site works. Most recipes are fairly small, and just do something well-scoped: they set up a content or media type, enable and configure some small feature like a media player or carousel or chatbot. But there's no technical limit on that. You can also have a recipe that is composed from smaller recipes: recipes can apply other recipes.
+
+  If you have touched recipes, then all you really need to know here is that site templates ARE recipes. There's actually zero technical difference between a site template and any other recipe.
+</aside>
+
+<!-- v -->
+
+<!-- .slide: data-background-image="there-is-no-eb497d40d3.jpg" -->
+
+**Site templates make Drupal easy to _start with_.**
+
+<h2 class="r-fit-text">THERE IS NO UPDATE PATH</h2>
+
+<!-- s -->
+
+## vs. distributions
+
+* A much older approach
+* Hard to build, VERY hard to maintain
+* Everybody is locked in
+* ...but they _can_ ship updates
+
+---
+
+💡 Distros aren't _bad_; just **different**.
+
+👉🏼 In _most_ cases, a site template is a better fit.
+
+<!-- v -->
+
+## How to _use_ a site template
+
+```shell
+composer create-project drupal/recommended-project my-site
+cd my-site
+composer require drupal/my_template
+drush si $PWD/recipes/my_template
+
+# The recipe is no longer needed!
+rm -rf recipes/my_template
+```
+
+Drupal CMS is a nicer experience, but the same result.
+
+<!-- s -->
+
+## 🛠️ How to build a site template
+
+<!-- s -->
+
+## Plan it out
+
+* Don't be generic
+  * Who is this for, and what do they want?
+* Have a nice design
+
+<aside class="notes">
+  I think in Drupal we've had a long history of trying to be everything to everybody. It's made Drupal incredibly flexible but it results in the learning cliff we've all seen from xkcd. At least in Drupal CMS, we think that if you make something too generic, it's also not useful enough for most people who want to get started quickly. So we think site templates should be opinionated. They should never try to be generic. 
+
+  You should build site templates with a target audience in mind. You can go with the traditional Drupal markets of healthcare, education, and government, and we certainly have site templates aimed at those verticals. But you could also branch out into smaller and less obvious spaces: think blogs, restaurants, different kinds of small businesses, community websites...you all probably have more ideas than I do.
+
+  Think about who you want a site template to be for, and what features those people will find useful. What content model will they need/appreciate? What kind of UX will they want? A site template needs to deliver a look and feel, too: what will delight the people you want to use your site template? What will they think looks good? AI tools like Lovable can help steer you in helpful directions here.
+
+  But really, site templates require you to think about Drupal as a product. Always be guided by who you're building for, and exactly what needs of theirs your site template addresses.
+</aside>
+
+<!-- v -->
+
+## Two ways to build
+
+✏️ Compose smaller recipes together by hand (higher code, dev-friendly)
+
+No code: Build in the UI and export as a recipe 🚀
+
+<!-- v -->
+
+## Start a new project
+
+Any base is fine:
+
+✔ Vanilla core
+
+✔ Drupal CMS
+
+✔ Another site template, e.g. _Blank_
+
+✔ A distribution
+
+...?
+
+<aside class="notes">
+  When creating a site template, you can start from any starting point you want to. You can start from plain Drupal core and build up from there. Or you could start with Drupal CMS, which I recommend, because it also gives you a page builder, an admin UI, useful content editing and SEO tools, and a number of things which just save you time. If you want to build a site template as a variation on a preexisting one, you could also start with a site template of your choice. Drupal CMS has the Blank and Starter site templates for exactly this purpose; the only difference between them is that Starter uses the Mercury design system, and Blank doesn't. You could start with something more elaborate, like Byte or Forma or Haven, if any of those would accelerate you.
+
+  Or you could even start with a distribution, which you could customize for your vertical and then export as a recipe, which I'll get to. It's a bit of advanced case because distributions sometimes rely on custom modules, but you could still do it if you feel it's the right approach.
+
+  The point I'm trying to make here, really, is when starting to build out a site template, spin up a new project using any base you want. You don't need to start from scratch.
+</aside>
+
+<!-- v -->
+
+## Build the site
+
+There are very few rules here!
+
+<ul>
+  <li class="fragment">Use any module or page builder</li>
+  <li class="fragment">Drupal CMS recipes for Canvas + best practices</li>
+  <li class="fragment">Create a custom theme if you want to</li>
+  <li class="fragment"><del>Write</del> generate realistic sample content</li>
+</ul>
+
+Make it look **good and polished!**
+
+<aside class="notes">
+  When it comes to actually doing the build, there aren't a lot of constraints. You can use any set of modules you want, and any page builder. I strongly recommend you only use stable and security-supported ones, because that will improve the lives of the people who use the final site template.
+
+  If you use Drupal CMS, or any of its recipes, those provide Canvas as a page builder, and generally agreed-upon best practices and well-supported extensions. But you could use anything. If there are recipes you like and find useful, and think your target vertical will find useful, you can apply them to the site you're building so that they get folded into the resulting template.
+
+  As far as the look and feel goes, you want the site template to look good, professional, and polished. This usually means building a custom theme, but thankfully you don't need to start from zero. If you use Drupal CMS's Mercury design system, you get a set of really useful components that you can immediately start building pages and content templates with in Canvas. You could also use some other component-based design system; I've seen site templates that use Bootstrap Barrio for their look and feel. You could also do a completely custom theme. There are site templates out there which are built in React and Tailwind using Canvas's support for code components. Ultimately, the choice of tool is up to you, because your goal is to make it look good, professional, and polished. The choice of tooling is secondary.
+
+  A final point here is that a site template should definitely include relevant example content. You don't want to ship a site template with "lorem ipsum" text on it, and you don't want to ship it the way Drupal traditionally has, with an empty front page. The site template should feel like something nearly finished, which your end user can customize. I definitely advocate for using AI to generate sample content that seems realistic for the vertical you're aiming at; this is a perfect use case for it. Be sure it include sample _images_ too, either stock photos you have rights to redistribute, or fully AI-generated imagery. Avoid generic placeholder images, or repeating the same two or three images; that looks unfinished. If you are going to have videos, such as in hero components, then include sample _videos_ too.
+
+  Make the sample content realistic. Consider Haven - it was designed to serve non-profits, and our imaginary "client" was a non-profit working on climate issues. That's the tone the sample content takes, and what it talks about -- same goes for its images.
+</aside>
+
+<!-- v -->
+
+## Avoid...
+
+<ul style="list-style-type: none;">
+  <li class="fragment">❌ Patches</li>
+  <li class="fragment">❌ Specific versions of dependencies</li>
+  <li class="fragment">❌ Unstable dependencies</li>
+  <li class="fragment">❌ Content you don't own</li>
+</ul>
+
+<aside class="notes">
+  Site templates should never EVER supply or specify patches for dependencies. The main reason is that patches can stop working at any moment (a merge conflict, or the patch is committed upstream), and when they do, it can be totally unexpected and if you don't have the technical skills to know what's going on, you will not know how to resolve it. Your site will just be broken. Patches should only ever be applied by the site owner, for specific reasons that have to do with a specific site.
+
+  If you need to fix a paticular problem upstream, the best approaches are either to work with the maintainers to get it fixed quickly, or if you can't, create a custom module to work around or polyfill the problem. This works about 80% of the time, and indeed, Drupal CMS has a module called Drupal CMS Helper whose entire purpose is to provide temporary polyfills for things that are in the process of being fixed elsewhere. So that's an established pattern for doing workarounds. But it's best to just fix things upstream if you can. Whatever you do, no patches!
+
+  Another thing not to do is to pin any dependencies to specific versions, like "exactly 1.0.3". That's because you can then cause the site owner who used your template to NEVER update the dependency, unless they know how to work with Composer, and that's very bad for security releases or bug fixes. You also don't want to use non-stable dependencies, because it can cause your site template to be unusable unless the site owner has specifically allowed non-stable dependencies, or made specific exceptions. Again, it requires the end user to know how to use Composer. You ideally want a site template to work as smoothly as possible, for people who don't know how to use Composer (or even the command line). Using non-stable dependencies works against that goal.
+
+  Finally, site templates shouldn't include any content, including images or other assets, that they don't have the legal right to use. This can land you, or the DA, in trouble.
+</aside>
+
+<!-- v -->
+
+## Export and publish
+
+* Use `drush site:export` ([Drupal CMS Helper](https://drupal.org/project/drupal_cms_helper))
+* Publish the recipe as [a general project](https://www.drupal.org/node/add/project-general)
+* Publish custom themes/modules separately and require them
+
+Exports are monolithic, but you can refactor later.
+
+<!-- v -->
+
+## Putting it out there
+
+* Publishing is _optional!_
+* [Submit to the site template catalogue](https://new.drupal.org/site-template/become-a-creator) on drupal.org
+* Provide screenshots and ideally a live demo
+* File an MR against [Drupal CMS's installer](https://git.drupalcode.org/project/drupal_cms/-/blob/2.x/drupal_cms_installer/site-templates.yml?ref_type=heads#L8)
+
+<aside class="notes">
+  So once you've built and exported a site template, you're actually done. You can stop there.
+
+  You can keep a site template totally internal. Maybe you want to keep a small stable of site templates within your agency as useful starting points for paying customers. That's totally fine.
+
+  If you want to put it out there, you can always submit it to the drupal.org site template catalogue. There's a form somewhere that you can fill out with some info on your site template, screenshots, etc.
+
+  And if you want to go the extra mile, you can even have a site template added to Drupal CMS's installer. This is probably the highest bar to clear, because Drupal CMS's installer shows only a specific, curated list of site templates that are individually reviewed and accepted by Pam, who is the product owner, and then put under some technical review by me. That said, you think your site template should be featured in Drupal CMS, you should absolutely submit a merge request to add it to the list of site templates in our installer. If we decide against it, we'll let you know nicely and we'll provide feedback for you, and you are absolutely welcome to come back when the feedback is addressed. We _want_ more site templates in Drupal CMS and we'll work with you, to the extent that we can, to help get your templates into our installer.
+</aside>
+
+<!-- v -->
+
+## 🤑 Selling a site template
+
+* The marketplace is on the back burner
+* Drupal CMS's installer supports paid templates, but you need DIY infrastructure
+* Dripyard and Morpht blazed this trail
+
+Doable, but not a priority.
+
+<aside class="notes">
+  So if you want to sell a site template, I'll start by acknowledging that the marketplace initiative has been placed on the back burner. It wasn't a decision I was involved, so I don't have a much insight into why this is the case, but I can certainly tell you who to ask if you want more info about that. If this is disappointing to hear, I'm sorry to be the bearer of bad news. It surprised me too.
+
+  Having said that, Drupal CMS's installer _does_ have rudimentary support for paid site templates. The way it works was developed in collaboration with Dripyard, who currently offer one of the only paid site templates we feature. Morpht also offers a paid site template, but it works differently; it's free to install but not to launch, and to be honest I'm not sure how they made that work.
+
+  What it comes down to for you is that, if you want to sell a site template, you will need to set up your own infrastructure to handle things like payments and license validation, and then you can optionally work with Drupal CMS to support it, although I'd advise just doing something similar to what Dripyard did. (If you want to, let's talk about it after the session.)
+
+  I guess the main takeaway here is: if you want to make a business of selling site templates, talk to me afterwards and I'll try to get you pointed in the right direction. There's some prior art and a pathway for this, but it's not being prioritized by the powers that be.
+</aside>
+
+<!-- s -->
+
+## Why should you do this?
+
+<ul>
+  <li class="fragment">Capture and share best practices</li>
+  <li class="fragment">Addresses a long-standing problem for Drupal</li>
+  <li class="fragment">Helpful if you specialize in certain verticals</li>
+  <li class="fragment">Incredibly easy thanks to `drush site:export`</li>
+  <li class="fragment">Brings more site builder value to the Drupal ecosystem</li>
+  <li class="fragment">Possible $, although AI makes this unclear</li>
+</ul>
+
+<aside class="notes">
+  So with everything I've told you, do you feel like you know HOW to do this if you wanted to? I have a few reasons why you should consider it.
+
+  I think the main reason to do this is because it's hands-down the best way to capture your best practices for projects - build it once, and you have a stable foundation for the rest of your projects without needing to be a hardcore Drupal developer. That's valuable! If you're in the business of building *sites* for people, this is an amazing way for your and your agents to get started.
+
+  And I think you should share what you do, if it makes sense for you to do that. Site templates thoroughly solve the "Drupal is hard to start with" problem, without getting caught in the "we need to support everything" trap or the weeds of distribution engineering. I think Drupal is well served by offering many great starting points, and although I recognize that there's not much incentive to spend time building a site template just to give it away for free, AI changes the game there.
+
+  But most Drupal *modules* are written to solve specific problems. Site templates extend that idea to site builders who are creating useful sites for specific verticals. If you create a site template to solve specific problems that face your clients, you should consider sharing it, or parts of it. This is how we can bring more value to the Drupal ecosystem: we're really enabling people to have Drupal solve their problems without them needing to build up the entire universe from scratch first.
+
+  The fact that you can potentially make a little money doing this is a nice bonus, and I don't know how much sway that has when you can have an AI agent build a site, but it's good to have the option.
+</aside>
+
+<!-- s -->
+
+## 💪🏼 Challenges & what's next
+
+<ul>
+  <li class="fragment">Multilingual support is tricky</li>
+  <li class="fragment">Updates: an unsolved problem</li>
+  <li class="fragment">Canvas: great page builder, long roadmap, many bugs</li>
+  <li class="fragment">Publishing new Drupal sites</li>
+  <li class="fragment">Better site template support in core</li>
+</ul>
+
+<aside class="notes">
+  When it comes to recipes being completely translatable, we've made a lot of progress recently thanks to Gábor's efforts but there's still a lot to do. Core has some deficiencies for this, and they tend to be complex problems with config. Config actions in particular aren't translatable, and that needs infrastructure changes. I can talk more about that with you if you want, but suffice it to say we still have work to do.
+
+  Meanwhie, updates are another unsolved problem that stare us in the face. The recipe system has never supported update paths the way modules do, but the fact remains that sometimes you change something in a recipe and people who have used that recipe to build their site wonder how they can get some of that sweet new sauce. It's something we have kicked ideas around for, but not actually committed real engineering funding and effort towards. It's a very tricky problem and needs some decisions and directions. Not sure we'll ever support this, to be honest.
+
+  Canvas is another challenge. It's an extraordinary piece of software but it's incredibly complicated, built by a huge team, has its own roadmap and its own priorities, and frankly a lot of bugs that can't always be fixed in a timely manner. There are many features that Canvas could add which would make it very useful, and not enough time or people to get those implemented.
+
+  Site templates make it a lot easier to start with Drupal, but one thing we haven't really solved for the ecosystem is what to tell people who have a local site set up and want to launch it. There's no real good pipeline for that; you have enterprise options like Pantheon and Acquia but those are quite technical and potentially expensive. So how do we help people *launch* sites they've quickly spun up from site templates? Drupito and FlexSite are at least two players in this space who have created really neat solutions, but there's yet to be a generally agreed-upon approach here.
+
+  And finally, Drupal CMS has blazed the site template trail but ideally a lot of this work would end up in core, with first-class support for site templates that can replace install profiles in most cases. I know there's interest out there, but again it's not something we've been able to spend a lot of time actually working on.
+</aside>
+
+<!-- s -->
+
+<!-- ==================================================================
+  MARKUP REFERENCE (this comment block is invisible in the deck)
+
+  Speaker notes — wrap in an aside, visible only in speaker view (S key):
+    <aside class="notes">Your notes here.</aside>
+
+  Fragments — reveal items one at a time. In Markdown, use HTML:
+    <li class="fragment">Appears on next click</li>
+    <p class="fragment fade-up">With an animation style</p>
+
+  Per-slide settings — HTML comments read by the Markdown plugin:
+    <!- .slide: data-background-color="#222" data-transition="zoom" ->
+    Applies to the slide the comment sits on. Any reveal.js data-*
+    attribute works this way.
+
+  Element attributes — add classes/attrs to the element above:
+    ## A heading <!- .element: class="fragment" ->
+
+  Code blocks — fenced blocks get syntax highlighting automatically:
+    ```php
+    $foo = 'bar';
+    ```
+    Highlight specific lines: ```php [1|3-5]
+
+  Keyboard shortcuts while presenting:
+    S   speaker view (notes, timer, upcoming slide)
+    F   fullscreen
+    ESC overview of all slides
+    ?   full shortcut list
+===================================================================== -->
