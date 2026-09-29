@@ -42,6 +42,12 @@ DrupalCon Rotterdam 2026
 - Why you should do this
 - Challenges and next steps
 
+<aside class="notes">
+  Question: how many of you have used Drupal CMS? Or even tried it?
+
+  How about recipes? How familiar are you with recipes?
+</aside>
+
 <!-- s -->
 
 ## What are site templates?
@@ -52,7 +58,7 @@ DrupalCon Rotterdam 2026
   <li class="fragment">Use once to start a project, then throw away</li>
   <li class="fragment">Aimed a specific use or vertical</li>
   <li class="fragment">Fully themed content model with demo content</li>
-  <li class="fragment">Examples: Haven, Byte, Archimedes, ...</li>
+  <li class="fragment">Examples: <a href="https://new.drupal.org/site-template/haven">Haven</a>, <a href="https://new.drupal.org/site-template/byte">Byte</a>, <a href="https://new.drupal.org/site-templates/archimedes">Archimedes</a>, ...</li>
 </ul>
 
 <!-- s -->
@@ -70,7 +76,7 @@ DrupalCon Rotterdam 2026
 
   Okay, for those who have never touched them: a recipe just a way to automate site buiding steps. It can install modules, import configuration, alter configuration, and add content. Recipes aren't like modules; they can't make decisions. And once you use a recipe, you throw it away - unlike a module, which sticks around changes the way the site works. Most recipes are fairly small, and just do something well-scoped: they set up a content or media type, enable and configure some small feature like a media player or carousel or chatbot. But there's no technical limit on that. You can also have a recipe that is composed from smaller recipes: recipes can apply other recipes.
 
-  If you have touched recipes, then all you really need to know here is that site templates ARE recipes. There's actually zero technical difference between a site template and any other recipe.
+  If you have touched recipes, then all you really need to know here is that site templates ARE recipes. There's actually zero technical difference between a site template and any other recipe; the differences lie in size and scope.
 </aside>
 
 <!-- v -->
@@ -138,7 +144,7 @@ Drupal CMS is a nicer experience, but the same result.
 
 ## Two ways to build
 
-✏️ Compose smaller recipes together by hand (higher code, dev-friendly)
+✏️ Compose smaller recipes together by hand (higher code, dev-friendly); <a href="https://project.pages.drupalcode.org/distributions_recipes">📚 docs</a>
 
 No code: Build in the UI and export as a recipe 🚀
 
@@ -173,13 +179,15 @@ Any base is fine:
 There are very few rules here!
 
 <ul>
-  <li class="fragment">Use any module or page builder</li>
-  <li class="fragment">Drupal CMS recipes for Canvas + best practices</li>
+  <li class="fragment">Use (almost) any module or page builder</li>
+  <li class="fragment">Drupal CMS recipes for <a href="https://drupal.org/project/drupal_cms_site_template_base">best practices</a> + Canvas</li>
   <li class="fragment">Create a custom theme if you want to</li>
   <li class="fragment"><del>Write</del> generate realistic sample content</li>
 </ul>
 
-Make it look **good and polished!**
+<p class="fragment">
+  Make it look <strong>nice<strong> and <strong>polished!</strong> 😍
+</p>
 
 <aside class="notes">
   When it comes to actually doing the build, there aren't a lot of constraints. You can use any set of modules you want, and any page builder. I strongly recommend you only use stable and security-supported ones, because that will improve the lives of the people who use the final site template.
@@ -219,16 +227,15 @@ Make it look **good and polished!**
 ## Export and publish
 
 * Use `drush site:export` ([Drupal CMS Helper](https://drupal.org/project/drupal_cms_helper))
-* Publish the recipe as [a general project](https://www.drupal.org/node/add/project-general)
-* Publish custom themes/modules separately and require them
-
-Exports are monolithic, but you can refactor later.
+  * Exports are monoliths; you can refactor later
+* Publishing is _optional_:
+  * Make [a general project](https://www.drupal.org/node/add/project-general) for the recipe
+  * Separate projects for custom themes/modules
 
 <!-- v -->
 
 ## Putting it out there
 
-* Publishing is _optional!_
 * [Submit to the site template catalogue](https://new.drupal.org/site-template/become-a-creator) on drupal.org
 * Provide screenshots and ideally a live demo
 * File an MR against [Drupal CMS's installer](https://git.drupalcode.org/project/drupal_cms/-/blob/2.x/drupal_cms_installer/site-templates.yml?ref_type=heads#L8)
@@ -313,6 +320,12 @@ Doable, but not a priority.
 </aside>
 
 <!-- s -->
+
+# Questions
+
+https://phenaproxima.net/drupalcon/rotterdam2026
+
+💙 _thank you_ 💙
         </script>
       </section>
     </div>
